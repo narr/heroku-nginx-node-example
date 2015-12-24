@@ -1,9 +1,4 @@
 {
-  "name": "node-js-getting-started",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
     "ejs": "2.3.3",
     "express": "4.13.3"
