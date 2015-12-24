@@ -1,0 +1,15 @@
+node_modules
+.env
+Dockerfile
+docker-compose.yml
+
+.DS_Store
+node_modules
+tmp
+dist
+.csslintrc
+.scss-lint.yml
+sprite-*
+*.log
+coverage
+log
