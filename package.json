@@ -1,14 +1,15 @@
 {
-  "dependencies": {
-    "ejs": "2.3.3",
-    "express": "4.13.3"
-  },
   "engines": {
     "node": ">=4.2.0"
   },
+  "dependencies": {
+    "ejs": "2.3.3",
+    "express": "4.13.3",
+    "pm2": "^0.15.10"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/Narr-/heroku-nginx-node-example.git"
   },
   "license": "MIT"
 }
