@@ -1,25 +1,30 @@
-var express = require('express');
-var app = express();
-var fs = require('fs');
+var pm2 = require('pm2');
 
-app.set('port', 3000);
+var instances = process.env.WEB_CONCURRENCY || -1; // Set by Heroku or -1 to scale to max cpu core -1
+var maxMemory = process.env.WEB_MEMORY || 512; // " " "
 
-app.use(express.static(__dirname + '/public'));
+pm2.connect(function() {
+  pm2.start({
+    script: './index.js',
+    name: 'heroku-production-app', // ----> THESE ATTRIBUTES ARE OPTIONAL:
+    exec_mode: 'cluster', // ----> https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#schema
+    instances: instances,
+    max_memory_restart: maxMemory + 'M', // Auto restart if process taking more than XXmo
+  }, function(err) {
+    if (err) return console.error('Error while launching applications', err.stack || err);
+    console.log('PM2 and application has been succesfully started');
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+    // Display logs in standard output
+    pm2.launchBus(function(err, bus) {
+      console.log('[PM2] Log streaming started');
 
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
+      bus.on('log:out', function(packet) {
+        console.log('[App:%s] %s', packet.process.name, packet.data);
+      });
 
-app.listen(app.get('port'), function() {
-
-  if (process.env.DYNO) {
-    console.log('hehe');
-    fs.openSync('/tmp/app-initialized', 'w');
-  }
-
-  console.log('Node app is running on port', app.get('port'));
+      bus.on('log:err', function(packet) {
+        console.error('[App:%s][Err] %s', packet.process.name, packet.data);
+      });
+    });
+  });
 });
