@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": ">=4.2.0"
+    "node": ">=4.2.0 <5"
   },
   "dependencies": {
     "ejs": "2.3.3",
