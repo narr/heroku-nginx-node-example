@@ -6,6 +6,7 @@ Check out <http://nginx-node-example.herokuapp.com/>
 
 You will see the X-Powered-By(Express) header at the response for the request of http://nginx-node-example.herokuapp.com/. Other paths(Static contents) are just from Nginx.
 <br>
+<br>
 
 ## By Heroku Toolbet
 
@@ -25,9 +26,20 @@ $ heroku logs -t
 
 Your app should now be running on http://[APP NAME].herokuapp.com/.
 <br>
+<br>
 
-## Deploying to Heroku
+## By Travis
+
+Make sure you have .travis.yml with .buildpacks and locate Nginx config(nginx.conf.erb) in config folder and Procfile at the project root path.
+<br>
+<br>
+
+## By Heroku Deploy Button
+
+Make sure you have app.json and locate Nginx config(nginx.conf.erb) in config folder and Procfile at the project root path.
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+<br>
 <br>
 
 ## References
