@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+<% include ../partials/header.ejs %>
 </head>
-
 <body>
-
-  <% include ../partials/nav.ejs %>
-
+<% include ../partials/nav.ejs %>
 <div class="jumbotron text-center">
+  <div class="info">
+    Check the developer tool to see where the files come from.<br>
+    Except Index(retrieved from Node), other static files like CSS, JS are loaded from Nginx.
+  </div>
   <div class="container">
     <a href="/" class="lang-logo">
       <img src="/lang-logo.png">
@@ -29,7 +30,6 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
       <ul>
         <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
-
         <li>When Heroku received the source code, it grabbed all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>.</li>
         <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
         <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
@@ -46,11 +46,9 @@
       </ul>
     </div>
   </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
+  <div class="alert alert-info" role="alert">
+    Please do work through the Getting Started guide, even if you do know how to build such an application. The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
   </div>
 </div>
-
-
 </body>
 </html>
