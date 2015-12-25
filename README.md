@@ -1,41 +1,36 @@
-# node-js-getting-started
+# heroku-nginx-node-example
+[![Build Status](https://travis-ci.org/Narr-/heroku-nginx-node-example.svg?branch=master)](https://travis-ci.org/Narr-/heroku-nginx-node-example)
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+An example of using Nginx as Reverse Proxy for Node server on Heroku
+Check out <http://nginx-node-example.herokuapp.com/>
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+You will see the X-Powered-By(Express) header at the response for the request of http://nginx-node-example.herokuapp.com/. Other paths(Static contents) are just from Nginx.
+<br>
 
-## Running Locally
+## By Heroku Toolbet
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+Make sure you have [Heroku Toolbelt](https://toolbelt.heroku.com/) installed and locate Nginx config(nginx.conf.erb) in config folder and Procfile at the project root path.
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
+$ cd "to your Project Folder"
+$ heroku create [APP NAME] --buildpack https://github.com/ddollar/heroku-buildpack-multi.git
+$ git remote add heroku https://git.heroku.com/[APP NAME].git
+$ echo "https://github.com/ryandotsmith/nginx-buildpack.git" >> .buildpacks
+$ echo "https://github.com/heroku/heroku-buildpack-nodejs.git" >> .buildpacks
+$ git add -A
+$ git commit -m "init"
+$ git push heroku master
+$ heroku logs -t
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on http://[APP NAME].herokuapp.com/.
+<br>
 
 ## Deploying to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+<br>
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
+## References
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
-
-http://stackoverflow.com/questions/17745308/have-you-managed-to-make-your-node-nginx-proxy-setup-on-heroku-work
+- http://stackoverflow.com/questions/17745308/have-you-managed-to-make-your-node-nginx-proxy-setup-on-heroku-work
+- https://github.com/ryandotsmith/nginx-buildpack

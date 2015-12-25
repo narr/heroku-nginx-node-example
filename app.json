@@ -1,0 +1,13 @@
+{
+  "name": "heroku-nginx-node-example",
+  "repository": "https://github.com/Narr-/heroku-nginx-node-example.git",
+  "buildpacks": [{
+    "url": "https://github.com/ryandotsmith/nginx-buildpack.git"
+  }, {
+    "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+  }],
+  "addons": [
+    "heroku-redis:hobby-dev",
+    "mongolab:sandbox"
+  ]
+}
