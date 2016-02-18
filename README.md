@@ -1,5 +1,5 @@
 # heroku-nginx-node-example
-[![Build Status](https://travis-ci.org/Narr-/heroku-nginx-node-example.svg?branch=master)](https://travis-ci.org/Narr-/heroku-nginx-node-example)
+[![Build Status](https://travis-ci.org/narr/heroku-nginx-node-example.svg?branch=master)](https://travis-ci.org/narr/heroku-nginx-node-example)
 
 An example of using Nginx as Reverse Proxy for Node server on Heroku
 Check out <http://nginx-node-example.herokuapp.com/>
