@@ -1,6 +1,6 @@
 {
   "name": "heroku-nginx-node-example",
-  "repository": "https://github.com/Narr-/heroku-nginx-node-example.git",
+  "repository": "https://github.com/narr/heroku-nginx-node-example.git",
   "buildpacks": [{
     "url": "https://github.com/ryandotsmith/nginx-buildpack.git"
   }, {
